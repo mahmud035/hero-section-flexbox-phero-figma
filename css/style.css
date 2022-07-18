@@ -53,6 +53,7 @@ select {
   --card-bg: #1b1938;
   --text-highlight: #aa5cdb;
   --white: #fff;
+  --violet: #aa5cdb;
 }
 
 body {
@@ -77,6 +78,7 @@ body {
 }
 
 .card-content-container {
+  max-width: 1440px;
   width: 80%;
   height: 70%;
   display: flex;
@@ -124,22 +126,47 @@ body {
   gap: 2rem;
 }
 
-.card-statistics-container .stat > h4 {
+.card-statistics-container h4 {
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
 }
 
-.card-statistics-container .stat > p {
+.card-statistics-container p {
   font-family: 'Lexend Deca', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
 }
 
+.card-img {
+  position: relative;
+}
+
 .card-img > img {
+  filter: grayscale(100%);
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: left;
+}
+
+.card-img .overlay {
+  width: 100%;
+  height: 100%;
+  background-color: var(--violet);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.card-content-container:hover .overlay {
+  opacity: 0;
+}
+
+.card-content-container:hover .card-img > img {
+  filter: grayscale(0%);
 }
